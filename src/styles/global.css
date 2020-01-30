@@ -1,3 +1,7 @@
+body {
+    background-color: #070923;
+}
+
 @font-face {
     font-family: Manaspace;
     src: url("../assets/manaspc.ttf");
