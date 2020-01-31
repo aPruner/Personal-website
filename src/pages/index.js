@@ -4,6 +4,10 @@ import "../styles/global.css"
 
 import Nav from "../components/nav"
 
+// TODO: figure out how to reuse styles better
+// TODO: define global styles here
+// TODO: create a light and dark theme using styled components' ThemeProvider
+
 const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -34,16 +38,14 @@ const AppSubheader = styled.h3`
 
 export default function App() {
   return (
-    <>
+    <AppContainer>
+      <AppHeader>
+        Adam Pruner
+      </AppHeader>
+      <AppSubheader>
+        Software engineer, game developer, analytics enthusiast
+      </AppSubheader>
       <Nav />
-      <AppContainer>
-        <AppHeader>
-          Adam Pruner
-        </AppHeader>
-        <AppSubheader>
-          Software engineer, game developer, analytics enthusiast
-        </AppSubheader>
-      </AppContainer>
-    </>
+    </AppContainer>
   )
 }
