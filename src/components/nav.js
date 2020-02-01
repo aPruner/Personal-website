@@ -1,9 +1,8 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Link } from 'gatsby'
 import "../styles/global.css"
 
-// TODO: reduce duplicate code in the styles
 const NavContainer = styled.nav`
   display: flex;
   flex-direction: row;
@@ -12,7 +11,7 @@ const NavContainer = styled.nav`
   margin 50px 0 0 0;
 `
 
-const NavLink = styled(Link)`
+const baseLinkStyles = css`
   font-family: Manaspace;
   background: transparent;
   border-radius: 3px;
@@ -29,21 +28,12 @@ const NavLink = styled(Link)`
   }
 `
 
+const NavLink = styled(Link)`
+  ${baseLinkStyles}
+`
+
 const NavA = styled.a`
-  font-family: Manaspace;
-  background: transparent;
-  border-radius: 3px;
-  border: none;
-  color: #add8e6;
-  text-decoration: none;
-  margin: 10px 10px 10px 10px;
-  :hover {
-    color: #2168db;
-  }
-  
-  :visited {
-    color: #4f317d;
-  }
+  ${baseLinkStyles}
 `
 
 export default function Nav() {

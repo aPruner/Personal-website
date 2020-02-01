@@ -1,7 +1,7 @@
 {
   "name": "Personal-website",
   "private": true,
-  "description": "The personal website of Adam Pruner - A software developer",
+  "description": "The personal website of Adam Pruner",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
