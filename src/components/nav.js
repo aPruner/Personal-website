@@ -8,7 +8,7 @@ const NavContainer = styled.nav`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin 50px 0 0 0;
+  margin: 50px 0 0 0;
 `
 
 const baseLinkStyles = css`
@@ -18,9 +18,12 @@ const baseLinkStyles = css`
   border: none;
   color: #add8e6;
   text-decoration: none;
-  margin: 10px 10px 10px 10px;
+  margin: 20px;
   :hover {
     color: #2168db;
+    -webkit-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    transform: scale(1.5);
   }
   
   :visited {

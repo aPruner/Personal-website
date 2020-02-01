@@ -1,5 +1,5 @@
 import React from "react"
-import styled, { css } from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 import "../styles/global.css"
 
 import Nav from "../components/nav"
@@ -16,7 +16,7 @@ const baseHeaderStyles = css`
 `
 
 const AppHeader = styled.h1`
-  ${baseHeaderStyles}
+  ${baseHeaderStyles};
   font-size: 6em;
   margin: 40px 0 10px 0;
   @media (max-width: 900px) {
@@ -26,7 +26,7 @@ const AppHeader = styled.h1`
 `
 
 const AppSubheader = styled.h3`
-  ${baseHeaderStyles}
+  ${baseHeaderStyles};
   font-size: 1.5em;
   margin: 5px 0 5px 0;
   @media (max-width: 900px) {
