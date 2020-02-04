@@ -7,12 +7,23 @@ import Nav from "../components/nav"
 // TODO: define global styles here
 // TODO: create a light and dark theme using styled components' ThemeProvider
 
+const textFade = keyframes`
+  from {
+    opacity: 0%;
+  }
+  
+  to {
+    opacity: 100%;
+  }
+`
+
 const AppContainer = styled.section``
 
 const baseHeaderStyles = css`
   font-family: Manaspace;
   color: #add8e6;
   text-align: center;
+  animation: ${textFade} 1s linear;
 `
 
 const AppHeader = styled.h1`

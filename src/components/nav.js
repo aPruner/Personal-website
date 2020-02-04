@@ -1,14 +1,27 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled, {css, keyframes} from 'styled-components'
 import { Link } from 'gatsby'
 import "../styles/global.css"
+
+const textFade = keyframes`
+  from {
+    opacity: 0%;
+  }
+  
+  to {
+    opacity: 100%;
+  }
+`
 
 const NavContainer = styled.nav`
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin: 50px 0 0 0;
+  margin: 25px 0 0 0;
+  @media (max-width: 900px) {
+    margin: 10px 0 0 0;
+  }
 `
 
 const baseLinkStyles = css`
@@ -19,6 +32,12 @@ const baseLinkStyles = css`
   color: #add8e6;
   text-decoration: none;
   margin: 20px;
+  font-size: 16px;
+  animation: ${textFade} 1s linear;
+  
+  @media (max-width: 900px) {
+    font-size: 12px;
+  }
   :hover {
     color: #2168db;
     -webkit-transform: scale(1.5);
