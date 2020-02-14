@@ -38,11 +38,13 @@ const baseLinkStyles = css`
   @media (max-width: 900px) {
     font-size: 12px;
   }
+  
   :hover {
     color: #2168db;
     -webkit-transform: scale(1.5);
     -ms-transform: scale(1.5);
     transform: scale(1.5);
+    cursor: pointer;
   }
   
   :visited {
@@ -59,10 +61,15 @@ const NavA = styled.a`
 `
 
 export default function Nav() {
+
+  function downloadResume() {
+    console.log("Downloading the resume!");
+  }
+
   return (
     <NavContainer>
       <NavLinkItem text="Games" to="/games"/>
-      <NavLinkItem text="Resume" to="/resume"/>
+      <ResumeAItem text="Resume" onClick={downloadResume}/>
       <NavAItem text="LinkedIn" href="https://linkedin.com/in/adam-pruner"/>
       <NavAItem text="Github" href="https://github.com/apruner"/>
     </NavContainer>
@@ -80,6 +87,14 @@ function NavLinkItem(props) {
 function NavAItem(props) {
   return (
     <NavA href={props.href}>
+      {props.text}
+    </NavA>
+  )
+}
+
+function ResumeAItem(props) {
+  return (
+    <NavA href={props.href} onClick={props.onClick}>
       {props.text}
     </NavA>
   )
