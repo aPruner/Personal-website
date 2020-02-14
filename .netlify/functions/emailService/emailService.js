@@ -3,6 +3,7 @@ const sendMail = require('sendmail')()
 const { validateEmail, validateLength } = require('./validations')
 
 exports.handler = (event, context, callback) => {
+  // TODO: figure out how to set process.env.CONTACT_EMAIL (node environment variable)
   if (!process.env.CONTACT_EMAIL) {
     return callback(null, {
       statusCode: 500,
