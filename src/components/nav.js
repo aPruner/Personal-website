@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled, {css, keyframes} from 'styled-components'
 import download from 'downloadjs'
 import { Link } from 'gatsby'
@@ -51,7 +51,11 @@ const baseLinkStyles = css`
   :visited {
     color: #4f317d;
   }
-  
+`
+
+const ResumeA = styled.a`
+  ${baseLinkStyles};
+  color: ${props => props.isVisited ? "#4f317d" : "#add8e6"};
 `
 
 const NavLink = styled(Link)`
@@ -63,8 +67,10 @@ const NavA = styled.a`
 `
 
 export default function Nav() {
+  const [resumeVisited, setResumeVisited] = useState(false)
 
   async function downloadResume() {
+    setResumeVisited(true)
     try {
       const response = await fetch(".netlify/functions/resumeService/resumeService.js")
       const blob = await response.blob()
@@ -77,33 +83,36 @@ export default function Nav() {
   return (
     <NavContainer>
       <NavLinkItem text="Games" to="/games"/>
-      <ResumeAItem text="Resume" onClick={downloadResume}/>
-      <NavAItem text="LinkedIn" href="https://linkedin.com/in/adam-pruner"/>
-      <NavAItem text="Github" href="https://github.com/apruner"/>
+      <ResumeLinkItem text="Resume" onClick={downloadResume} isVisited={resumeVisited}/>
+      <NavLinkItem text="LinkedIn" href="https://linkedin.com/in/adam-pruner"/>
+      <NavLinkItem text="Github" href="https://github.com/apruner"/>
     </NavContainer>
   )
 }
 
+// Only provide one of props.to or props.href
 function NavLinkItem(props) {
-  return (
-    <NavLink to={props.to}>
-      {props.text}
-    </NavLink>
-  )
+
+  if (props.to) {
+    return (
+      <NavLink to={props.to}>
+        {props.text}
+      </NavLink>
+    )
+  } else {
+    // props.href must be truthy
+    return (
+      <NavA href={props.href}>
+        {props.text}
+      </NavA>
+    )
+  }
 }
 
-function NavAItem(props) {
+function ResumeLinkItem(props) {
   return (
-    <NavA href={props.href}>
+    <ResumeA onClick={props.onClick} isVisited={props.isVisited}>
       {props.text}
-    </NavA>
-  )
-}
-
-function ResumeAItem(props) {
-  return (
-    <NavA href={props.href} onClick={props.onClick}>
-      {props.text}
-    </NavA>
+    </ResumeA>
   )
 }
