@@ -53,7 +53,7 @@ const baseLinkStyles = css`
   }
 `
 
-const ResumeA = styled.a`
+const FunctionA = styled.a`
   ${baseLinkStyles};
   color: ${props => props.isVisited ? "#4f317d" : "#add8e6"};
 `
@@ -83,9 +83,11 @@ export default function Nav() {
   return (
     <NavContainer>
       <NavLinkItem text="Games" to="/games"/>
-      <ResumeLinkItem text="Resume" onClick={downloadResume} isVisited={resumeVisited}/>
+      <FunctionLinkItem text="Resume" onClick={downloadResume} isVisited={resumeVisited}/>
       <NavLinkItem text="LinkedIn" href="https://linkedin.com/in/adam-pruner"/>
       <NavLinkItem text="Github" href="https://github.com/apruner"/>
+      {/* TODO: Fix NavContainer styling for phones, looks fine on desktop/tablet */}
+      <NavLinkItem text="Contact" to="/contact"/>
     </NavContainer>
   )
 }
@@ -109,10 +111,10 @@ function NavLinkItem(props) {
   }
 }
 
-function ResumeLinkItem(props) {
+function FunctionLinkItem(props) {
   return (
-    <ResumeA onClick={props.onClick} isVisited={props.isVisited}>
+    <FunctionA onClick={props.onClick} isVisited={props.isVisited}>
       {props.text}
-    </ResumeA>
+    </FunctionA>
   )
 }
