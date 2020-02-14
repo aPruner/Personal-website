@@ -1,14 +1,20 @@
-// Docs on event and context https://www.netlify.com/docs/functions/#the-handler-method
+const fs = require('fs')
+const path = require('path')
+
+// Return my pdf resume, or an error if one occurs
 exports.handler = async (event, context) => {
-  // TODO: figure out how to host a pdf, maybe run an express server?
   try {
-    const subject = event.queryStringParameters.name || 'World'
+    const resumeFilename = "/assets/AdamPrunerResume.pdf"
+    const resumeFilepath = path.join(__dirname, resumeFilename)
+    const resumeBitmapFile = fs.readFileSync(resumeFilepath)
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: `Hello ${subject}` })
-      // // more keys you can return:
-      // headers: { "headerName": "headerValue", ... },
-      // isBase64Encoded: true,
+      body: new Buffer(resumeBitmapFile).toString('base64'),
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/pdf",
+      },
+      isBase64Encoded: true
     }
   } catch (err) {
     return { statusCode: 500, body: err.toString() }
