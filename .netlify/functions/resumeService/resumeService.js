@@ -13,6 +13,7 @@ exports.handler = async (event, context) => {
       headers: {
         "Access-Control-Allow-Origin": "*",
         "Content-Type": "application/pdf",
+        "Content-Disposition": "attachment"
       },
       isBase64Encoded: true
     }

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled, {css, keyframes} from 'styled-components'
+import download from 'downloadjs'
 import { Link } from 'gatsby'
 import "../styles/global.css"
 
@@ -50,6 +51,7 @@ const baseLinkStyles = css`
   :visited {
     color: #4f317d;
   }
+  
 `
 
 const NavLink = styled(Link)`
@@ -62,8 +64,14 @@ const NavA = styled.a`
 
 export default function Nav() {
 
-  function downloadResume() {
-    console.log("Downloading the resume!");
+  async function downloadResume() {
+    try {
+      const response = await fetch(".netlify/functions/resumeService/resumeService.js")
+      const blob = await response.blob()
+      download(blob, "Adam Pruner - Resume", response.headers["content-type"])
+    } catch(err) {
+      console.log(err)
+    }
   }
 
   return (
