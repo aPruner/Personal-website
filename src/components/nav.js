@@ -93,8 +93,8 @@ export default function Nav() {
 }
 
 // Only provide one of props.to or props.href
+// based on whether link is external or internal
 function NavLinkItem(props) {
-
   if (props.to) {
     return (
       <NavLink to={props.to}>

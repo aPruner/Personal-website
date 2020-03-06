@@ -1,63 +1,41 @@
-// with thanks to https://github.com/Urigo/graphql-modules/blob/8cb2fd7d9938a856f83e4eee2081384533771904/website/lambda/contact.js
-const sendMail = require('sendmail')()
+const sendGrid = require('@sendgrid/mail')
 const { validateEmail, validateLength } = require('./validations')
 
-exports.handler = (event, context, callback) => {
-  process.env['CONTACT_EMAIL'] = 'adampruner99@gmail.com'
-  if (!process.env.CONTACT_EMAIL) {
-    return callback(null, {
-      statusCode: 500,
-      body: 'process.env.CONTACT_EMAIL must be defined'
-    })
-  }
+exports.handler = (event, context) => {
 
   const body = JSON.parse(event.body)
+  console.log('email request body:', body)
 
   try {
     validateLength('body.name', body.name, 3, 50)
-  } catch (e) {
-    return callback(null, {
-      statusCode: 403,
-      body: e.message
-    })
+  } catch (err) {
+    // TODO: Is 403 the right status code for these types of errors?
+    return { statusCode: 403, body: err.toString() }
   }
 
   try {
-    validateEmail('body.email', body.email)
-  } catch (e) {
-    return callback(null, {
-      statusCode: 403,
-      body: e.message
-    })
+    validateEmail('body.emailAddress', body.emailAddress)
+  } catch (err) {
+    return { statusCode: 403, body: err.toString() }
   }
 
   try {
-    validateLength('body.details', body.details, 10, 1000)
-  } catch (e) {
-    return callback(null, {
-      statusCode: 403,
-      body: e.message
-    })
+    validateLength('body.messageContent', body.messageContent, 10, 1000)
+  } catch (err) {
+    return { statusCode: 403, body: err.toString() }
   }
 
-  const descriptor = {
-    from: `"${body.email}" <no-reply@gql-modules.com>`,
-    to: process.env.CONTACT_EMAIL,
-    subject: `${body.name} sent you a message from gql-modules.com`,
-    text: body.details
+  const msg = {
+    to: process.env.CONTACT_EMAIL_ADDRESS,
+    from: `${body.emailAddress}`,
+    subject: `${body.subject}`,
+    text: body.messageContent
   }
 
-  sendMail(descriptor, e => {
-    if (e) {
-      callback(null, {
-        statusCode: 500,
-        body: e.message
-      })
-    } else {
-      callback(null, {
-        statusCode: 200,
-        body: ''
-      })
-    }
-  })
+  try {
+    sendGrid.send(msg)
+  } catch (err) {
+    // TODO: fix error handling
+    return { statusCode: 500, body: err.toString() }
+  }
 }
