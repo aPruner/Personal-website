@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled, {css, keyframes} from 'styled-components'
 import download from 'downloadjs'
 import { Link } from 'gatsby'
-import "../styles/global.css"
+import '../styles/global.css'
 
 const textFade = keyframes`
   from {
