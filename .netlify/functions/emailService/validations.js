@@ -1,5 +1,6 @@
 // with thanks to https://github.com/Urigo/graphql-modules/blob/8cb2fd7d9938a856f83e4eee2081384533771904/website/lambda/contact.js
 exports.validateEmail = (ctx, str) => {
+  console.log('inside validateEmail, email is:', str)
   if (typeof str !== 'string' && !(str instanceof String)) {
     throw TypeError(`${ctx} must be a string`)
   }

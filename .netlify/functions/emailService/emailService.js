@@ -1,10 +1,12 @@
+require('dotenv')
 const sendGrid = require('@sendgrid/mail')
 const { validateEmail, validateLength } = require('./validations')
+const { CONTACT_EMAIL_ADDRESS, SENDGRID_API_KEY } = process.env
 
-exports.handler = (event, context) => {
+exports.handler = async (event, context) => {
+  sendGrid.setApiKey(SENDGRID_API_KEY)
 
   const body = JSON.parse(event.body)
-  console.log('email request body:', body)
 
   try {
     validateLength('body.name', body.name, 3, 50)
@@ -26,14 +28,16 @@ exports.handler = (event, context) => {
   }
 
   const msg = {
-    to: process.env.CONTACT_EMAIL_ADDRESS,
+    to: CONTACT_EMAIL_ADDRESS,
     from: `${body.emailAddress}`,
     subject: `${body.subject}`,
     text: body.messageContent
   }
 
   try {
+    console.log('sending email')
     sendGrid.send(msg)
+    console.log('noice')
     return { statusCode: 200, body: 'Noice! e-mail sent' }
   } catch (err) {
     // TODO: fix error handling
