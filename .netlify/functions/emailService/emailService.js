@@ -34,6 +34,7 @@ exports.handler = (event, context) => {
 
   try {
     sendGrid.send(msg)
+    return { statusCode: 200, body: 'Noice! e-mail sent' }
   } catch (err) {
     // TODO: fix error handling
     return { statusCode: 500, body: err.toString() }
