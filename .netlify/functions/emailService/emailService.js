@@ -27,8 +27,8 @@ exports.handler = async (event, context) => {
 
   const msg = {
     to: CONTACT_EMAIL_ADDRESS,
-    from: `${body.emailAddress}`,
-    subject: `${body.subject}`,
+    from: body.emailAddress,
+    subject: `You received an email from: ${body.emailAddress} via adampruner.com`,
     text: body.messageContent
   }
 
