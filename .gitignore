@@ -52,7 +52,7 @@ typings/
 *.tgz
 
 # dotenv environment variable files
-.netlify/functions/emailService/.env
+.env
 
 # gatsby files
 .cache/
