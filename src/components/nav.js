@@ -86,7 +86,7 @@ export default function Nav() {
       <FunctionLinkItem text="Resume" onClick={downloadResume} isVisited={resumeVisited}/>
       <NavLinkItem text="LinkedIn" href="https://linkedin.com/in/adam-pruner"/>
       <NavLinkItem text="Github" href="https://github.com/apruner"/>
-      {/* TODO: Fix NavContainer styling for phones, looks fine on desktop/tablet */}
+      {/* TODO: Fix NavContainer styling for mobile, looks fine on desktop/tablet */}
       <NavLinkItem text="Contact" to="/contact"/>
     </NavContainer>
   )
