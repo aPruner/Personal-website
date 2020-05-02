@@ -1,6 +1,7 @@
-import React from "react"
+import React from 'react'
 import styled, { css, keyframes } from 'styled-components'
 import '../styles/global.css'
+import { Link } from 'gatsby'
 import Nav from './nav'
 
 // TODO: define global styles here
@@ -25,6 +26,10 @@ const baseHeaderStyles = css`
   animation: ${textFade} 1s linear;
 `
 
+const NavWrapperHeaderLink = styled(Link)`
+  text-decoration: none;
+`
+
 const NavWrapperHeader = styled.h1`
   ${baseHeaderStyles};
   font-size: 6em;
@@ -47,9 +52,11 @@ const NavWrapperSubheader = styled.h3`
 export default function NavWrapper() {
   return (
     <NavWrapperContainer>
-      <NavWrapperHeader>
-        Adam Pruner
-      </NavWrapperHeader>
+      <NavWrapperHeaderLink to="/">
+        <NavWrapperHeader>
+          Adam Pruner
+        </NavWrapperHeader>
+      </NavWrapperHeaderLink>
       <NavWrapperSubheader>
         Software engineer, game developer, analytics enthusiast
       </NavWrapperSubheader>

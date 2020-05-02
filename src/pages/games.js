@@ -16,7 +16,7 @@ export default function Games() {
     <div>
       <NavWrapper />
       <GamesCardContainer>
-        <Card text="This is a game I made or am making" />
+        <Card title="ActionRPG - Name TBD" subtitle="A 2D top-down roguelike Action RPG" />
       </GamesCardContainer>
     </div>
   )
