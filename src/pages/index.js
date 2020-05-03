@@ -23,6 +23,9 @@ export default function Home() {
         <HomePageHeader>
           Welcome to my website!
         </HomePageHeader>
+        <HomePageHeader>
+          There isn't much here just yet, but soon there will be! Hang tight!
+        </HomePageHeader>
         {/* TODO: Add more content here, what should go here? */}
       </HomePageHeaderContainer>
     </baseComponents.PageContainerDiv>
