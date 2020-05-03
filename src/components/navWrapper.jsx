@@ -4,7 +4,6 @@ import '../styles/global.css'
 import { Link } from 'gatsby'
 import Nav from './nav'
 
-// TODO: define global styles here
 // TODO: create a light and dark theme using styled components' ThemeProvider
 
 const textFade = keyframes`
@@ -17,7 +16,8 @@ const textFade = keyframes`
   }
 `
 
-const NavWrapperContainer = styled.section``
+const NavWrapperContainer = styled.div`
+`
 
 const baseHeaderStyles = css`
   font-family: Manaspace;
@@ -34,7 +34,7 @@ const NavWrapperHeader = styled.h1`
   ${baseHeaderStyles};
   font-size: 6em;
   margin: 40px 0 10px 0;
-  @media (max-width: 900px) {
+  @media (max-width: 600px) {
     font-size: 3em;
     margin: 20px 0 10px 0;
   }
@@ -44,7 +44,7 @@ const NavWrapperSubheader = styled.h3`
   ${baseHeaderStyles};
   font-size: 1.5em;
   margin: 5px 0 5px 0;
-  @media (max-width: 900px) {
+  @media (max-width: 600px) {
     font-size: 1em;
   }
 `

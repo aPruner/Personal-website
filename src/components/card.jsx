@@ -1,5 +1,6 @@
 import React from 'react'
 import styled, {css} from 'styled-components'
+import baseStyles from '../styles/baseStyles'
 
 const CardContainer = styled.div`
   flex-direction: row;
@@ -10,21 +11,19 @@ const CardContainer = styled.div`
   padding: 10px;
 `
 
-const baseTextStyles = css`
-  font-size: 16px;
+const baseCardTextStyles = css`
+  ${baseStyles.baseTextStyles}
   padding: 16px;
-  font-family: Manaspace;
-  color: #add8e6;
 `
 
 const CardTitle = styled.h1`
-  ${baseTextStyles}
+  ${baseCardTextStyles}
   font-size: 32px;
   text-align: center;
 `
 
 const CardSubTitle = styled.h2`
-  ${baseTextStyles}
+  ${baseCardTextStyles}
   font-size: 16px;
   text-align: center;
 `

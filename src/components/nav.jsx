@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import styled, {css, keyframes} from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
+import baseStyles from '../styles/baseStyles'
 import download from 'downloadjs'
 import { Link } from 'gatsby'
 import '../styles/global.css'
@@ -25,45 +26,19 @@ const NavContainer = styled.nav`
   }
 `
 
-const baseLinkStyles = css`
-  font-family: Manaspace;
-  background: transparent;
-  border-radius: 3px;
-  border: none;
-  color: #add8e6;
-  text-decoration: none;
-  margin: 20px;
-  font-size: 16px;
-  animation: ${textFade} 1s linear;
-  
-  @media (max-width: 900px) {
-    font-size: 12px;
-  }
-  
-  :hover {
-    color: #2168db;
-    -webkit-transform: scale(1.5);
-    -ms-transform: scale(1.5);
-    transform: scale(1.5);
-    cursor: pointer;
-  }
-  
-  :visited {
-    color: #4f317d;
-  }
-`
-
 const FunctionA = styled.a`
-  ${baseLinkStyles};
+  ${baseStyles.baseLinkStyles};
   color: ${props => props.isVisited ? "#4f317d" : "#add8e6"};
 `
 
 const NavLink = styled(Link)`
-  ${baseLinkStyles}
+  ${baseStyles.baseLinkStyles}
+  animation: ${textFade} 1s linear;
 `
 
 const NavA = styled.a`
-  ${baseLinkStyles}
+  ${baseStyles.baseLinkStyles}
+  animation: ${textFade} 1s linear;
 `
 
 export default function Nav() {
