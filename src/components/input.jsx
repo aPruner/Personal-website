@@ -1,12 +1,10 @@
 // Core stuff
 import React from 'react'
-import styled, { css } from 'styled-components'
 
 // Base styles/components
 import baseComponents from '../components/baseComponents'
-import baseStyles from '../styles/baseStyles'
 
-// TODO: Add more key props to this
+// TODO: Add more important props to this
 export default function Input(props) {
   const {
     InputContainer,
