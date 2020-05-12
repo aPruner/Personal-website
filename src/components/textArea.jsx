@@ -5,11 +5,11 @@ import React from 'react'
 import baseComponents from '../components/baseComponents'
 
 // TODO: Add more important props to this
-export default function Input(props) {
+export default function TextArea(props) {
   const {
     InputContainer,
     InputLabel,
-    Input
+    TextArea
   } = baseComponents
 
   return (
@@ -17,8 +17,7 @@ export default function Input(props) {
       <InputLabel>
         {props.labelText}
       </InputLabel>
-      <Input type="text" placeholder={props.placeholder} onChange={props.onChange}>
-      </Input>
+      <TextArea onChange={props.onChange}/>
     </InputContainer>
   )
 }

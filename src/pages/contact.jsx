@@ -9,6 +9,7 @@ import baseComponents from '../components/baseComponents'
 // Components
 import NavWrapper from '../components/navWrapper'
 import Input from '../components/input'
+import TextArea from '../components/textArea'
 
 // TODO: Design and build Contact page, which will use the emailService serverless function
 // TODO: Build contact form for sending me an email
@@ -34,10 +35,10 @@ function ContactForm(props) {
       <ContactFormHeader>
         Send me an email using the following form:
       </ContactFormHeader>
-      <Input labelText="Your Name" />
-      <Input labelText="Your Email Address" />
-      <Input labelText="Your Message" />
-      <EmailSendButton onClick={() => {console.log("The button was clicked!")}}>
+      <Input labelText="Your Name" onChange={props.setName}/>
+      <Input labelText="Your Email Address" onChange={props.setEmailAddress}/>
+      <TextArea labelText="Message Content" onChange={props.setMessageContent}/>
+      <EmailSendButton onClick={() => {console.log("The button was clicked!")/* TODO: Call props.sendEmail here */}}>
         Send Email
       </EmailSendButton>
     </ContactFormContainer>
@@ -49,7 +50,7 @@ export default function Contact() {
   const [emailAddress, setEmailAddress] = useState('')
   const [messageContent, setMessageContent] = useState('')
 
-  async function sendEmail(event) {
+  async function sendEmail() {
     try {
       const response = await fetch(".netlify/functions/emailService/emailService.js", {
         body: JSON.stringify({
@@ -72,7 +73,12 @@ export default function Contact() {
   return (
     <PageContainerDiv>
       <NavWrapper />
-      <ContactForm />
+      <ContactForm
+        setName={(event) => setName(event.target.value)}
+        setEmailAddress={(event) => setEmailAddress(event.target.value)}
+        setMessageContent={(event) => setMessageContent(event.target.value)}
+        onSubmit={sendEmail}
+      />
     </PageContainerDiv>
   )
 }

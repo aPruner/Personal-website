@@ -47,7 +47,10 @@ const buttonStyles = css`
 `
 
 const inputStyles = css`
-  width: inherit
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 4px 8px;
+  width: 280px;
 `
 
 const inputLabelStyles = css`
@@ -61,6 +64,15 @@ const inputContainerStyles = css`
   margin: 10px 0;
 `
 
+const textAreaStyles = css`
+  border-radius: 5px;
+  font-size: 16px;
+  resize: none;
+  padding: 4px 9px;
+  width: 280px;
+  height: 100px;
+`
+
 export default {
   baseTextStyles,
   baseLinkStyles,
@@ -69,5 +81,6 @@ export default {
   buttonStyles,
   inputStyles,
   inputLabelStyles,
-  inputContainerStyles
+  inputContainerStyles,
+  textAreaStyles
 }
