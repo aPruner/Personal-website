@@ -19,7 +19,7 @@ export default function TextArea(props) {
       <InputLabel>
         {props.labelText}
       </InputLabel>
-      <TextArea />
+      <TextArea onChange={props.onChange}/>
     </InputContainer>
   )
 }

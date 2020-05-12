@@ -19,7 +19,7 @@ export default function Input(props) {
       <InputLabel>
         {props.labelText}
       </InputLabel>
-      <Input type="text" placeholder={props.placeholder}>
+      <Input type="text" placeholder={props.placeholder} onChange={props.onChange}>
       </Input>
     </InputContainer>
   )
