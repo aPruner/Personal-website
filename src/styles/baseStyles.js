@@ -35,8 +35,39 @@ const pageContainerStyles = css`
   margin: 0 auto;
 `
 
+const flexContainerStyles = css`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+
+const buttonStyles = css`
+`
+
+const inputStyles = css`
+  width: inherit
+`
+
+const inputLabelStyles = css`
+  ${baseTextStyles}
+  display: block;
+  margin-bottom: 10px;
+`
+
+const inputContainerStyles = css`
+  width: 300px;
+  margin: 10px 0;
+`
+
 export default {
   baseTextStyles,
   baseLinkStyles,
-  pageContainerStyles
+  pageContainerStyles,
+  flexContainerStyles,
+  buttonStyles,
+  inputStyles,
+  inputLabelStyles,
+  inputContainerStyles
 }

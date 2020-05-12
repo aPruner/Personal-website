@@ -1,5 +1,8 @@
+// Core stuff
 import React from 'react'
-import styled, {css} from 'styled-components'
+import styled, { css } from 'styled-components'
+
+// Base styles/components
 import baseStyles from '../styles/baseStyles'
 
 const CardContainer = styled.div`

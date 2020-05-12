@@ -1,9 +1,18 @@
+// Core stuff
 import React, { useState } from 'react'
-import styled, { css, keyframes } from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+
+// Base styles/components
 import baseStyles from '../styles/baseStyles'
-import download from 'downloadjs'
-import { Link } from 'gatsby'
+
+// Styles
 import '../styles/global.css'
+
+// Components
+import { Link } from 'gatsby'
+
+// Other stuff
+import download from 'downloadjs'
 
 const textFade = keyframes`
   from {
@@ -29,6 +38,7 @@ const NavContainer = styled.nav`
 const FunctionA = styled.a`
   ${baseStyles.baseLinkStyles};
   color: ${props => props.isVisited ? "#4f317d" : "#add8e6"};
+  animation: ${textFade} 1s linear;
 `
 
 const NavLink = styled(Link)`

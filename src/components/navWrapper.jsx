@@ -1,6 +1,11 @@
+// Core stuff
 import React from 'react'
 import styled, { css, keyframes } from 'styled-components'
+
+// Styles
 import '../styles/global.css'
+
+// Components
 import { Link } from 'gatsby'
 import Nav from './nav'
 
