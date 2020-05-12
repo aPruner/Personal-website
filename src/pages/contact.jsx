@@ -9,6 +9,7 @@ import baseComponents from '../components/baseComponents'
 // Components
 import NavWrapper from '../components/navWrapper'
 import Input from '../components/input'
+import TextArea from '../components/textArea'
 
 // TODO: Design and build Contact page, which will use the emailService serverless function
 // TODO: Build contact form for sending me an email
@@ -36,7 +37,7 @@ function ContactForm(props) {
       </ContactFormHeader>
       <Input labelText="Your Name" />
       <Input labelText="Your Email Address" />
-      <Input labelText="Your Message" />
+      <TextArea labelText="Message Content" />
       <EmailSendButton onClick={() => {console.log("The button was clicked!")}}>
         Send Email
       </EmailSendButton>

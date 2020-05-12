@@ -28,11 +28,16 @@ const InputContainer = styled.div`
   ${baseStyles.inputContainerStyles}
 `
 
+const TextArea = styled.textarea`
+  ${baseStyles.textAreaStyles}
+`
+
 export default {
   PageContainerDiv,
   FlexContainerDiv,
   Button,
   Input,
   InputLabel,
-  InputContainer
+  InputContainer,
+  TextArea
 }
