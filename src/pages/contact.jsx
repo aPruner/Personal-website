@@ -11,6 +11,7 @@ import Helmet from '../components/helmet'
 import NavWrapper from '../components/navWrapper'
 import Input from '../components/input'
 import TextArea from '../components/textArea'
+import { Toast, triggerToast } from '../components/toast'
 
 // Utils
 import { createRouteString } from '../utils/stringUtils'
@@ -42,7 +43,7 @@ function ContactForm(props) {
       <Input labelText="Your Name" onChange={props.setName}/>
       <Input labelText="Your Email Address" onChange={props.setEmailAddress}/>
       <TextArea labelText="Message Content" onChange={props.setMessageContent}/>
-      <EmailSendButton onClick={() => {console.log("The button was clicked!")/* TODO: Call props.sendEmail here */}}>
+      <EmailSendButton onClick={props.onSubmit}>
         Send Email
       </EmailSendButton>
     </ContactFormContainer>
@@ -57,14 +58,19 @@ export default function Contact(props) {
   async function sendEmail() {
     try {
       const response = await fetch(".netlify/functions/emailService/emailService.js", {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json'
+        },
         body: JSON.stringify({
           name,
           emailAddress,
           messageContent
         })
       })
-      const body = await response.json()
-      console.log(body)
+      triggerToast("Thanks for your email!")
+      await response.body
     } catch(err) {
       console.log(err)
     }
@@ -86,8 +92,9 @@ export default function Contact(props) {
         setName={(event) => setName(event.target.value)}
         setEmailAddress={(event) => setEmailAddress(event.target.value)}
         setMessageContent={(event) => setMessageContent(event.target.value)}
-        onSubmit={sendEmail}
+        onSubmit={() => sendEmail()}
       />
+      <Toast />
     </PageContainerDiv>
   )
 }
