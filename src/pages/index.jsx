@@ -8,6 +8,7 @@ import baseComponents from '../components/baseComponents'
 
 // Components
 import NavWrapper from  '../components/navWrapper'
+import Helmet from '../components/helmet'
 
 const HomePageHeaderContainer = styled.div`
   text-align: center;
@@ -27,6 +28,7 @@ export default function Home() {
 
   return (
     <PageContainerDiv>
+      <Helmet route="Home" />
       <NavWrapper />
       <HomePageHeaderContainer>
         <HomePageHeader>

@@ -7,6 +7,7 @@ import baseStyles from '../styles/baseStyles'
 import baseComponents from '../components/baseComponents'
 
 // Components
+import Helmet from '../components/helmet'
 import NavWrapper from '../components/navWrapper'
 import Input from '../components/input'
 import TextArea from '../components/textArea'
@@ -72,6 +73,7 @@ export default function Contact() {
 
   return (
     <PageContainerDiv>
+      <Helmet route="Contact" />
       <NavWrapper />
       <ContactForm
         setName={(event) => setName(event.target.value)}
