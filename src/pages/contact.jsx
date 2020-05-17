@@ -12,6 +12,9 @@ import NavWrapper from '../components/navWrapper'
 import Input from '../components/input'
 import TextArea from '../components/textArea'
 
+// Utils
+import { createRouteString } from '../utils/stringUtils'
+
 // TODO: Design and build Contact page, which will use the emailService serverless function
 // TODO: Build contact form for sending me an email
 const ContactFormContainer = styled(baseComponents.FlexContainerDiv)`
@@ -46,7 +49,7 @@ function ContactForm(props) {
   )
 }
 
-export default function Contact() {
+export default function Contact(props) {
   const [name, setName] = useState('')
   const [emailAddress, setEmailAddress] = useState('')
   const [messageContent, setMessageContent] = useState('')
@@ -71,9 +74,13 @@ export default function Contact() {
     PageContainerDiv
   } = baseComponents
 
+  const {
+    location
+  } = props
+
   return (
     <PageContainerDiv>
-      <Helmet route="Contact" />
+      <Helmet route={createRouteString(location.pathname)} />
       <NavWrapper />
       <ContactForm
         setName={(event) => setName(event.target.value)}

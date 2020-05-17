@@ -7,8 +7,11 @@ import baseStyles from '../styles/baseStyles'
 import baseComponents from '../components/baseComponents'
 
 // Components
-import NavWrapper from  '../components/navWrapper'
 import Helmet from '../components/helmet'
+import NavWrapper from  '../components/navWrapper'
+
+// Utils
+import { createRouteString } from '../utils/stringUtils'
 
 const HomePageHeaderContainer = styled.div`
   text-align: center;
@@ -28,7 +31,7 @@ export default function Home() {
 
   return (
     <PageContainerDiv>
-      <Helmet route="Home" />
+      <Helmet route={createRouteString(location.pathname)}  />
       <NavWrapper />
       <HomePageHeaderContainer>
         <HomePageHeader>
