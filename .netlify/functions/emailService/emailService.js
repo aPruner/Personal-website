@@ -10,19 +10,19 @@ exports.handler = async (event, context) => {
   try {
     validateLength('body.name', body.name, 3, 50)
   } catch (err) {
-    return { statusCode: 403, body: err.toString() }
+    return { statusCode: 400, body: err.toString() }
   }
 
   try {
     validateEmail('body.emailAddress', body.emailAddress)
   } catch (err) {
-    return { statusCode: 403, body: err.toString() }
+    return { statusCode: 400, body: err.toString() }
   }
 
   try {
     validateLength('body.messageContent', body.messageContent, 10, 1000)
   } catch (err) {
-    return { statusCode: 403, body: err.toString() }
+    return { statusCode: 400, body: err.toString() }
   }
 
   const msg = {
