@@ -44,6 +44,15 @@ const flexContainerStyles = css`
 `
 
 const buttonStyles = css`
+  border-radius: 5px;
+  :focus {
+    outline: none;
+    box-shadow: none;
+  }
+  :hover {
+    background-color: #0c0b2d;
+    cursor: pointer;
+  }
 `
 
 const inputStyles = css`
