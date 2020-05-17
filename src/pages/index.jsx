@@ -24,10 +24,14 @@ const HomePageHeader = styled.h1`
 `
 
 // TODO: Design and build Home (index) page
-export default function Home() {
+export default function Home(props) {
   const {
     PageContainerDiv
   } = baseComponents
+
+  const {
+    location
+  } = props;
 
   return (
     <PageContainerDiv>
