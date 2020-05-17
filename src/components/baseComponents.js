@@ -5,31 +5,31 @@ import styled from 'styled-components'
 import baseStyles from '../styles/baseStyles'
 
 const PageContainerDiv = styled.div`
-  ${baseStyles.pageContainerStyles}
+  ${baseStyles.pageContainerStyles};
 `
 
 const FlexContainerDiv = styled.div`
-  ${baseStyles.flexContainerStyles}
+  ${baseStyles.flexContainerStyles};
 `
 
 const Button = styled.button`
-  ${baseStyles.buttonStyles}
+  ${baseStyles.buttonStyles};
 `
 
 const Input = styled.input`
-  ${baseStyles.inputStyles}
+  ${baseStyles.inputStyles};
 `
 
 const InputLabel = styled.label`
-  ${baseStyles.inputLabelStyles}
+  ${baseStyles.inputLabelStyles};
 `
 
 const InputContainer = styled.div`
-  ${baseStyles.inputContainerStyles}
+  ${baseStyles.inputContainerStyles};
 `
 
 const TextArea = styled.textarea`
-  ${baseStyles.textAreaStyles}
+  ${baseStyles.textAreaStyles};
 `
 
 export default {

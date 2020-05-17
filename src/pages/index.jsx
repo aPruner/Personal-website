@@ -14,7 +14,7 @@ const HomePageHeaderContainer = styled.div`
 `
 
 const HomePageHeader = styled.h1`
-  ${baseStyles.baseTextStyles}
+  ${baseStyles.baseTextStyles};
   font-size: 22px;
   padding: 16px;
 `

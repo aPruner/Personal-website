@@ -15,18 +15,18 @@ const CardContainer = styled.div`
 `
 
 const baseCardTextStyles = css`
-  ${baseStyles.baseTextStyles}
+  ${baseStyles.baseTextStyles};
   padding: 16px;
 `
 
 const CardTitle = styled.h1`
-  ${baseCardTextStyles}
+  ${baseCardTextStyles};
   font-size: 32px;
   text-align: center;
 `
 
 const CardSubTitle = styled.h2`
-  ${baseCardTextStyles}
+  ${baseCardTextStyles};
   font-size: 16px;
   text-align: center;
 `

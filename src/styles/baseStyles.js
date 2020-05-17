@@ -6,7 +6,7 @@ const baseTextStyles = css`
 `
 
 const baseLinkStyles = css`
-  ${baseTextStyles}
+  ${baseTextStyles};
   background: transparent;
   border-radius: 3px;
   border: none;
@@ -54,17 +54,23 @@ const inputStyles = css`
 `
 
 const inputLabelStyles = css`
-  ${baseTextStyles}
+  ${baseTextStyles};
   display: block;
   margin-bottom: 10px;
 `
 
+const baseTextInputStyles = css`
+  font-family: Arial;
+`
+
 const inputContainerStyles = css`
+  ${baseTextInputStyles};
   width: 300px;
   margin: 10px 0;
 `
 
 const textAreaStyles = css`
+  ${baseTextInputStyles};
   border-radius: 5px;
   font-size: 16px;
   resize: none;
