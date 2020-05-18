@@ -59,7 +59,7 @@ const inputStyles = css`
   border-radius: 5px;
   font-size: 16px;
   padding: 4px 8px;
-  width: 280px;
+  width: 400px;
 `
 
 const inputLabelStyles = css`
@@ -74,7 +74,7 @@ const baseTextInputStyles = css`
 
 const inputContainerStyles = css`
   ${baseTextInputStyles};
-  width: 300px;
+  width: 400px;
   margin: 10px 0;
 `
 
@@ -84,7 +84,7 @@ const textAreaStyles = css`
   font-size: 16px;
   resize: none;
   padding: 4px 9px;
-  width: 280px;
+  width: 400px;
   height: 100px;
 `
 
