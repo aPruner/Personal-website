@@ -35,7 +35,7 @@ export default function Home(props) {
 
   return (
     <PageContainerDiv>
-      <Helmet route={createRouteString(location.pathname)}  />
+      <Helmet route={createRouteString(location.pathname)}/>
       <NavWrapper />
       <HomePageHeaderContainer>
         <HomePageHeader>
