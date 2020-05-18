@@ -55,9 +55,14 @@ export default function Contact(props) {
   const [emailAddress, setEmailAddress] = useState('')
   const [messageContent, setMessageContent] = useState('')
 
+  const {
+    location
+  } = props
+
   async function sendEmail() {
     try {
-      const response = await fetch(".netlify/functions/emailService/emailService.js", {
+      const responseUrl = `${location.origin}/.netlify/functions/emailService/emailService.js`
+      const response = await fetch(responseUrl, {
         method: 'POST',
         mode: 'cors',
         headers: {
@@ -69,8 +74,8 @@ export default function Contact(props) {
           messageContent
         })
       })
-      triggerToast("Thanks for your email!")
       await response.body
+      triggerToast('Thanks for your email!')
     } catch(err) {
       console.log(err)
     }
@@ -79,10 +84,6 @@ export default function Contact(props) {
   const {
     PageContainerDiv
   } = baseComponents
-
-  const {
-    location
-  } = props
 
   return (
     <PageContainerDiv>
