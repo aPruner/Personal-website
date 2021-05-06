@@ -26,7 +26,7 @@ const HomePageHeader = styled.h1`
   padding: 16px;
 `
 
-const HomePageImage = styled.img``;
+const HomePageImage = styled.img``
 
 // TODO: Design and build Home (index) page
 export default function Home(props) {

@@ -73,6 +73,9 @@ export default function Contact(props) {
       })
       await response.body
       triggerToast('Thanks for your email!')
+      setName('')
+      setEmailAddress('')
+      setMessageContent('')
     } catch(err) {
       console.log(err)
     }
