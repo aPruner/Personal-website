@@ -13,6 +13,9 @@ import NavWrapper from  '../components/navWrapper'
 // Utils
 import { createRouteString } from '../utils/stringUtils'
 
+// Assets
+import portrait from '../assets/portrait.png';
+
 const HomePageHeaderContainer = styled.div`
   text-align: center;
 `
@@ -22,6 +25,8 @@ const HomePageHeader = styled.h1`
   font-size: 22px;
   padding: 16px;
 `
+
+const HomePageImage = styled.img``;
 
 // TODO: Design and build Home (index) page
 export default function Home(props) {
@@ -42,9 +47,9 @@ export default function Home(props) {
           Welcome to my website!
         </HomePageHeader>
         <HomePageHeader>
-          There isn't much here just yet, but soon there will be! Hang tight!
+          Here's an awesome picture of me that a friend of mine drew:
         </HomePageHeader>
-        {/* TODO: Add more content here, what should go here?*/}
+        <HomePageImage src={portrait} />
       </HomePageHeaderContainer>
     </PageContainerDiv>
   )
