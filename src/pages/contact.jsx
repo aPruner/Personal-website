@@ -16,8 +16,6 @@ import { Toast, triggerToast } from '../components/toast'
 // Utils
 import { createRouteString } from '../utils/stringUtils'
 
-// TODO: Design and build Contact page, which will use the emailService serverless function
-// TODO: Build contact form for sending me an email
 const ContactFormContainer = styled(baseComponents.FlexContainerDiv)`
 `
 
@@ -33,7 +31,6 @@ const EmailSendButton = styled(baseComponents.Button)`
   margin-top: 15px;
 `
 
-// TODO: Maybe refactor this form later out into a component
 function ContactForm(props) {
   return (
     <ContactFormContainer>
